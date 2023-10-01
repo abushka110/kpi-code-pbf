@@ -19,17 +19,17 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 // Обробник події кліку для кнопки Button1
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
-	// Оголошення змінних a, b і sum
-	float a,b,sum;
+	// Оголошення змінних a, b і mult(multiplication)
+	float a,b,mult;
 
 	// Отримання значень з полів LabeledEdit1 і LabeledEdit2 та конвертація їх в числа з плаваючою комою
 	a=StrToFloat(LabeledEdit1->Text);
 	b=StrToFloat(LabeledEdit2->Text);
 
-	// // Обчислення суми a і b
-	sum=a*b;
+	// // Обчислення добутку a і b
+	mult=a*b;
 
     // Встановлення тексту панелі Panel1 для відображення результату обчислення
-	Panel1->Caption= LabeledEdit1->Text + " * " + LabeledEdit2->Text + " = " +FloatToStr(sum);
+	Panel1->Caption= LabeledEdit1->Text + " * " + LabeledEdit2->Text + " = " +FloatToStr (mult);
 }
 //---------------------------------------------------------------------------
