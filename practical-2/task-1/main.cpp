@@ -1,12 +1,29 @@
+// Включення необхідної бібліотеки для введення/виведення на консоль
 #include <iostream>
 
+// Визначення функції main, яка є точкою входу в програму
 int main() {
+    // Оголошення змінних integer1 і integer2 для збереження введених чисел
     int integer1, integer2;
-    std::cout<<"Enter first number:\n";
-    std::cin>>integer1;
-    std::cout<<"Enter second number:\n";
-    std::cin>>integer2;
+
+    // Виведення текстового повідомлення для введення першого числа
+    std::cout << "Enter first number:\n";
+
+    // Зчитування першого числа з консолі і збереження його в змінній integer1
+    std::cin >> integer1;
+
+    // Виведення текстового повідомлення для введення другого числа
+    std::cout << "Enter second number:\n";
+
+    // Зчитування другого числа з консолі і збереження його в змінній integer2
+    std::cin >> integer2;
+
+    // Обчислення суми двох введених чисел і збереження результату в змінній sum
     int sum = integer1 + integer2;
-    std::cout<<"The sum is: "<<sum<<std::endl;
+
+    // Виведення результату суми на консоль
+    std::cout << "The sum is: " << sum << std::endl;
+
+    // Повернення значення 0 для позначення успішного завершення програми
     return 0;
 }
