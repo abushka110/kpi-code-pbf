@@ -15,7 +15,6 @@ __published:	// IDE-managed Components
 	TEdit *Edit1;
 	TLabel *Label2;
 	TButton *Button1;
-	TButton *Button2;
 	TLabel *Label3;
 	TLabel *Label4;
 	void __fastcall Button1Click(TObject *Sender);
