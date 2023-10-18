@@ -663,4 +663,4 @@ win32
 __astcache
 
 # idea settings
-.idea
+*.idea
