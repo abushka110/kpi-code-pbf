@@ -661,3 +661,6 @@ modules/
 Win32
 win32
 __astcache
+
+# idea settings
+.idea/
