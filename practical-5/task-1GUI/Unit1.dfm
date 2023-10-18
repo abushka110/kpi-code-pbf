@@ -14,67 +14,72 @@ object Form1: TForm1
   object Label1: TLabel
     Left = 24
     Top = 24
-    Width = 34
-    Height = 15
-    Caption = 'Label1'
+    Width = 192
+    Height = 33
+    Caption = 'program for electrical engineering calculations'
+    WordWrap = True
   end
   object Label2: TLabel
     Left = 24
-    Top = 168
+    Top = 208
     Width = 41
     Height = 15
     Caption = 'R1(Om)'
   end
   object Label3: TLabel
     Left = 175
-    Top = 168
+    Top = 208
     Width = 41
     Height = 15
     Caption = 'R2(Om)'
   end
   object Label4: TLabel
     Left = 24
-    Top = 232
-    Width = 34
+    Top = 272
+    Width = 192
     Height = 15
-    Caption = 'Label4'
   end
   object RadioGroup1: TRadioGroup
     Left = 24
-    Top = 45
+    Top = 85
     Width = 192
     Height = 105
-    Caption = 'RadioGroup1'
+    Caption = 'Specify the connection type'
+    Items.Strings = (
+      'parallel'
+      'serial')
     TabOrder = 0
   end
   object Edit1: TEdit
     Left = 24
-    Top = 189
+    Top = 229
     Width = 73
     Height = 23
     TabOrder = 1
   end
   object Edit2: TEdit
     Left = 144
-    Top = 189
+    Top = 229
     Width = 72
     Height = 23
     TabOrder = 2
   end
   object Button1: TButton
     Left = 24
-    Top = 264
+    Top = 304
     Width = 75
     Height = 25
-    Caption = 'Button1'
+    Caption = 'Calculate'
     TabOrder = 3
+    OnClick = Button1Click
   end
   object Button2: TButton
     Left = 141
-    Top = 264
+    Top = 304
     Width = 75
     Height = 25
-    Caption = 'Button2'
+    Caption = 'Quit'
     TabOrder = 4
+    OnClick = Button2Click
   end
 end
