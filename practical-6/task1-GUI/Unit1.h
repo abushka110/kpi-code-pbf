@@ -20,9 +20,10 @@ __published:	// IDE-managed Components
 	TCheckBox *CheckBox3;
 	TCheckBox *CheckBox4;
 	TCheckBox *CheckBox5;
-	TCheckBox *CheckBox6;
-	TImage *Image1;
 	TLabel *Label2;
+	void __fastcall Button1Click(TObject *Sender);
+	void __fastcall CheckBox3Click(TObject *Sender);
+	void __fastcall CheckBox5Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm1(TComponent* Owner);
