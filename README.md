@@ -1,3 +1,3 @@
 # kpi-cpp
 
-kpi programming c/c++ practical tasks
+solutions for kpi programming c/c++ practical tasks
