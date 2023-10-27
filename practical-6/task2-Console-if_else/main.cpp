@@ -1,49 +1,50 @@
-#include <iostream>
-#include <cmath>
+#include <iostream> // Підключення бібліотеки для введення та виведення інформації
+#include <cmath>    // Підключення бібліотеки для математичних обчислень
 
 // Функція для обчислення прибутку для підрозділу alpha
 double CalculateAlphaProfit(double x) {
-    return 100 * fabs(cos(fabs(2 * x) / 2.15 - cos(3 * x - 3) + 10) + 100);
+    return 100 * fabs(cos(fabs(2 * x) / 2.15 - cos(3 * x - 3) + 10) + 100); // Обчислюємо прибуток для підрозділу alpha
 }
 
 // Функція для обчислення прибутку для підрозділу beta
 double CalculateBetaProfit(double x) {
-    return 120 * fabs(sin(x) * sin(x + 2) * cos(x * x) / 0.44 + 11.4 + 120);
+    return 120 * fabs(sin(x) * sin(x + 2) * cos(x * x) / 0.44 + 11.4 + 120); // Обчислюємо прибуток для підрозділу beta
 }
 
 // Функція для обчислення прибутку для підрозділу gamma
 double CalculateGammaProfit(double x) {
-    return 130 * fabs(fabs(3 * sin(3 * x) + sin(2 * x - 1.8)) + 3.45) + 130;
+    return 130 * fabs(fabs(3 * sin(3 * x) + sin(2 * x - 1.8)) + 3.45) + 130; // Обчислюємо прибуток для підрозділу gamma
 }
 
 int main() {
-    double x; // Змінна x, яка використовується для обчислення прибутку
-    int i;    // Номер варіанту
+    double x = 5; // Змінна x, яка використовується для обчислення прибутку
+    int i;    // оголошення змінною для вибору підрозділу
 
     std::cout << "Введіть номер підрозділу (1 - alpha, 2 - betta або 3 - lamda): ";
-    std::cin >> i;
+    std::cin >> i; // Зчитуємо номер підрозділу, вибраний користувачем
 
-    double profit = 0;
-    double depreciation = 0;
+    // оголошення змінних для обчислення прибутку та затрат на амортизацію
+    double profit;
+    double depreciation;
 
     // Обчислюємо прибуток та затрати на амортизацію в залежності від вибраного підрозділу
     if (i == 1) {
-        profit = CalculateAlphaProfit(x);
-        depreciation = 0.2 * profit;
+        profit = CalculateAlphaProfit(x); // Викликаємо функцію для обчислення прибутку для alpha
+        depreciation = 0.2 * profit;      // Обчислюємо затрати на амортизацію
     } else if (i == 2) {
-        profit = CalculateBetaProfit(x);
-        depreciation = 0.3 * profit;
+        profit = CalculateBetaProfit(x);  // Викликаємо функцію для обчислення прибутку для beta
+        depreciation = 0.3 * profit;      // Обчислюємо затрати на амортизацію
     } else if (i == 3) {
-        profit = CalculateGammaProfit(x);
-        depreciation = 0.4 * profit;
+        profit = CalculateGammaProfit(x); // Викликаємо функцію для обчислення прибутку для gamma
+        depreciation = 0.4 * profit;      // Обчислюємо затрати на амортизацію
     } else {
         std::cout << "Неправильний номер варіанту. Введіть 1, 2 або 3." << std::endl;
-        return 1; // Повертаємо помилку
+        return 1; // Повертаємо помилку у разі неправильного вибору
     }
 
-    std::cout << "Прибуток: " << profit << std::endl;
-    std::cout << "Затрати на амортизацію: " << depreciation << std::endl;
-    std::cout << "Загальний прибуток: " << profit - depreciation << std::endl;
+    std::cout << "Прибуток: " << profit << std::endl; // Виводимо прибуток
+    std::cout << "Затрати на амортизацію: " << depreciation << std::endl; // Виводимо затрати на амортизацію
+    std::cout << "Загальний прибуток: " << profit - depreciation << std::endl; // Виводимо загальний прибуток
 
-    return 0;
+    return 0; // Повертаємо 0 для успішного завершення програми
 }
