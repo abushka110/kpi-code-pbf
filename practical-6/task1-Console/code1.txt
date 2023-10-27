@@ -1,0 +1,74 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+
+using namespace std;
+
+void totalSum(vector<pair<string, int>>& menu, vector<int>& order, int& total) {
+    if (total > 0) {
+        if (order.size() == menu.size()) {
+            total = total - (total * 5 / 100); // Знижка 5%
+            cout << "До сплати (з урахуванням знижки): " << total << "грн." << endl;
+        } else {
+            cout << "До сплати: " << total << "грн." << endl;
+        }
+    }
+}
+
+void printOrderAndCheckContinuation(vector<pair<string, int>>& menu, vector<int>& order, int& total) {
+    cout << "Зробіть замовлення:" << endl;
+    for (int i = 0; i < menu.size(); i++) {
+        cout << i + 1 << ". " << menu[i].first << "(" << menu[i].second << "грн), ";
+    }
+
+    cout << endl;
+
+    string input;
+    getline(cin, input);
+    stringstream ss(input);
+    int item;
+
+    while (ss >> item) {
+        if (item >= 1 && item <= menu.size()) {
+            order.push_back(item);
+            total += menu[item - 1].second;
+        }
+    }
+    cout << "Ви обрали: ";
+    for (int i = 0; i < order.size(); i++) {
+        cout << menu[order[i] - 1].first;
+        if (i < order.size() - 1) {
+            cout << ", ";
+        }
+    }
+
+    int choice;
+    cout << endl;
+    cout << "Ще щось? (Так - 1; Ні - 2): ";
+    cin >> choice;
+
+    if (choice == 1) {
+        printOrderAndCheckContinuation(menu, order, total);
+    } else if (choice == 2){
+        totalSum(menu, order, total);
+    } else {
+        cout << "Невірний вибір!" << endl;
+    }
+
+    order.clear();
+    total = 0;
+}
+
+int main() {
+    vector<pair<string, int>> menu = {
+            {"напій", 34},
+            {"морозиво", 63},
+            {"картопля фрі", 63},
+            {"соус", 51},
+            {"бургер", 70}
+    };
+
+    vector<int> order;
+    int total = 0;printOrderAndCheckContinuation(menu, order, total);
+}
