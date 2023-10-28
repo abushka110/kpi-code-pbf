@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 442
-  ClientWidth = 628
+  ClientHeight = 441
+  ClientWidth = 624
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,8 +21,8 @@ object Form1: TForm1
   object Label2: TLabel
     Left = 24
     Top = 184
-    Width = 266
-    Height = 97
+    Width = 34
+    Height = 15
     Caption = 'Label2'
   end
   object RadioGroup1: TRadioGroup
