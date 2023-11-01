@@ -200,4 +200,4 @@ __astcache
 *.vsix 
 
 # idea
-.idea/
+.idea/*
