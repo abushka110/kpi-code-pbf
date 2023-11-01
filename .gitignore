@@ -198,3 +198,6 @@ __astcache
 
 # Built Visual Studio Code Extensions
 *.vsix 
+
+# idea
+.idea
