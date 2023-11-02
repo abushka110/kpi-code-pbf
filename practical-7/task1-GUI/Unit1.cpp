@@ -14,8 +14,6 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
-
-
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
 	Memo1->Clear(); // Очищення вмісту Memo1
@@ -35,9 +33,5 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 		// Додання результатів до Memo1
 		Memo1->Lines->Add(FloatToStr(standard) + "                  " + FloatToStr(roda) + "       " + FloatToStr(cubicMeter));
 	}
-
-
-
-
 }
 //---------------------------------------------------------------------------

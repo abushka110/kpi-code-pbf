@@ -14,8 +14,8 @@ object Form1: TForm1
   object Label1: TLabel
     Left = 32
     Top = 16
-    Width = 185
-    Height = 33
+    Width = 170
+    Height = 30
     Caption = 
       'Let'#39's calculate the values of the sums and products of the serie' +
       's:'
