@@ -1,0 +1,24 @@
+For x = 0.5 and precision = 0.001
+Sum of the series: -3.66195
+Number of terms summed: 7
+----------------------------------------
+For x = 0.5 and precision = 0.001
+Sum of the series: -3.66195
+Number of terms summed: 7
+----------------------------------------
+For x = 0.5 and precision = 0.001
+Sum of the series: -3.66195
+Number of terms summed: 7
+----------------------------------------
+For x = 0.5 and precision = 0.001
+Sum of the series: -3.66195
+Number of terms summed: 7
+----------------------------------------
+For x = 0.7 and precision = 0.001
+Sum of the series: -4.77029
+Number of terms summed: 7
+----------------------------------------
+For x = 1 and precision = 0.001
+Sum of the series: -5.89558
+Number of terms summed: 9
+----------------------------------------
