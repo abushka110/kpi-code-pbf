@@ -1,62 +1,44 @@
 #include <iostream>
-#include <fstream>
 #include <cmath>
+#include <fstream>
 
 using namespace std;
 
-// Функція для обчислення факторіалу заданого цілого числа
 double factorial(int n) {
-    if (n == 0 || n == 1) {
-        return 1;
-    } else {
-        return n * factorial(n - 1);
+    double fact = 1;
+    for(int i = 1; i <= n; ++i) {
+        fact *= i;
     }
-}
-
-// Функція для обчислення кожного члена ряду
-double calculateTerm(int k, double x) {
-    // Формула для члена ряду
-    double f = 4.31 + pow(cos(x), 2) * sin(2 * x - 2);
-    double factorialK = factorial(k);
-    return pow(-1, k) * (f * (2 * k + 1) * pow(x, k) / factorialK);
+    return fact;
 }
 
 int main() {
-    // Файловий потік для запису результатів у файл
-    ofstream fout;
-    fout.open("result.txt", ios::app);
+    double x, e, a, f, sum = 0;
+    int k = 1;
 
-    double x, precision;
-    int terms = 0;
-    double sum = 0.0;
-
-    // Введення користувачем значення x
-    cout << "Введіть значення для x (від 0 до 1): ";
+    cout << "Введіть x (0 <= x <= 1): ";
     cin >> x;
+    cout << "Введіть точність e: ";
+    cin >> e;
 
-    // Введення користувачем бажаної точності
-    cout << "Введіть бажану точність (наприклад, 0.001): ";
-    cin >> precision;
+    ofstream fout;
+    fout.open("file.txt", std::ios::app);
 
-    double term = 0;
-    // Цикл для обчислення суми ряду до досягнення бажаної точності
-    while (fabs(term) >= precision || terms == 0) {
-        terms++;
-        term = calculateTerm(terms, x);
-        sum += term;
+    f = 4.31 + pow(cos(x), 2) * sin(2*x - 2);
+
+    a = pow(-1, k) * ((f*(2*k+1)* pow(x, k))/ factorial(k));
+    while (fabs(a) >= e) {
+        sum += a;
+        k++;
+        a = pow(-1, k) * ((f*(2*k+1)* pow(x, k))/ factorial(k));
     }
 
-    // Виведення суми ряду та кількості доданків
-    cout << "Сума ряду з точністю " << precision << ": " << sum << endl;
-    cout << "Кількість доданків: " << terms << endl;
+    fout << "Сума ряду: " << sum << "\n";
+    fout << "Кількість доданків, що підсумовуються: " << k << "\n";
 
-    // Запис результатів у файл
-    fout << "Для x = " << x << " та точності = " << precision << endl;
-    fout << "Сума ряду: " << sum << endl;
-    fout << "Кількість доданків: " << terms << endl;
-    fout << "----------------------------------------\n";
+    cout << "Сума ряду: " << sum << "\n";
+    cout << "Кількість доданків, що підсумовуються: " << k << "\n";
 
-    // Закриття файлового потоку
     fout.close();
 
     return 0;
