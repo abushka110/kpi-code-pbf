@@ -29,10 +29,8 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
     double x = x_start;
     int count = 0;
     double sum = 0;
-
 	// Виведення заголовка для таблиці
-	Memo1->Lines->Add("x - аргумент y - значення функції");
-
+	Memo1->Lines->Add("x - argument y - function value");
     // Цикл для обчислення та виведення значень функції
     while (x <= x_end) {
         double y = f(x);
@@ -42,14 +40,12 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
             sum += y;  // Додати значення до суми
         }
 		// Виведення значень x та y
-		Memo1->Lines->Add("x = " + FloatToStr(x) + "y = " + FloatToStr(y));
-
+		Memo1->Lines->Add("x = " + FloatToStr(x) + " y = " + FloatToStr(y));
         // Збільшення значення x на крок dx
 		x += dx;
     }
-
 	// Виведення суми та кількості додатних значень функції
-	Memo1->Lines->Add("Сума додатних значень функції: " + FloatToStr(sum));
-	Memo1->Lines->Add("Кількість додатних значень функції: " + FloatToStr(count));
+	Memo1->Lines->Add("The sum of positive values of a function: " + FloatToStr(sum));
+	Memo1->Lines->Add("Number of positive values of the function: " + FloatToStr(count));
 }
 //---------------------------------------------------------------------------

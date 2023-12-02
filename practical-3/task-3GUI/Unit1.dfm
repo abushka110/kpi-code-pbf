@@ -3,7 +3,7 @@ object Form1: TForm1
   Top = 0
   Caption = 'Form1'
   ClientHeight = 442
-  ClientWidth = 628
+  ClientWidth = 224
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,23 +14,23 @@ object Form1: TForm1
   object Label1: TLabel
     Left = 16
     Top = 18
-    Width = 185
+    Width = 34
     Height = 15
-    Caption = 'Label1'
+    Caption = 'x_start'
   end
   object Label2: TLabel
     Left = 16
     Top = 77
-    Width = 185
+    Width = 31
     Height = 15
-    Caption = 'Label2'
+    Caption = 'x_end'
   end
   object Label3: TLabel
     Left = 16
     Top = 138
-    Width = 185
+    Width = 13
     Height = 15
-    Caption = 'Label3'
+    Caption = 'dx'
   end
   object Edit1: TEdit
     Left = 16
@@ -38,7 +38,6 @@ object Form1: TForm1
     Width = 185
     Height = 23
     TabOrder = 0
-    Text = 'Edit1'
   end
   object Edit2: TEdit
     Left = 16
@@ -46,7 +45,6 @@ object Form1: TForm1
     Width = 185
     Height = 23
     TabOrder = 1
-    Text = 'Edit2'
   end
   object Edit3: TEdit
     Left = 16
@@ -54,13 +52,12 @@ object Form1: TForm1
     Width = 185
     Height = 23
     TabOrder = 2
-    Text = 'Edit3'
   end
   object Memo1: TMemo
     Left = 16
     Top = 231
     Width = 185
-    Height = 89
+    Height = 202
     Lines.Strings = (
       '')
     TabOrder = 3
@@ -70,7 +67,7 @@ object Form1: TForm1
     Top = 200
     Width = 185
     Height = 25
-    Caption = 'Button1'
+    Caption = 'Calculate'
     TabOrder = 4
     OnClick = Button1Click
   end
