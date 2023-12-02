@@ -7,20 +7,27 @@ double f(double x) {
 }
 
 int main() {
-    double x_start = -10;
-    double x_end = 10;
-    double dx = 0.1;
+    double x_start, x_end, dx;
+
+    cout << "Введіть x початкове (0 <= x <= 1): ";
+    cin >> x_start;
+    cout << "Введіть x кінцеве (0 <= x <= 1): ";
+    cin >> x_end;
+    cout << "Введіть крок dx: ";
+    cin >> dx;
 
     double x = x_start;
     int count = 0;
     double sum = 0;
 
+    cout << "x - аргумент" << "y - значення функції" << endl;
     while (x <= x_end) {
         double y = f(x);
         if (y > 0) {
             count++;
             sum += y;
         }
+        cout << "x = " << x << " y = " << y << endl;
         x += dx;
     }
 
