@@ -1,5 +1,4 @@
 ﻿//---------------------------------------------------------------------------
-
 #include <vcl.h>
 #include <cmath>
 #include <fstream>
@@ -11,11 +10,13 @@
 #pragma resource "*.dfm"
 TForm1 *Form1;
 //---------------------------------------------------------------------------
+// Конструктор для форми
 __fastcall TForm1::TForm1(TComponent* Owner)
 	: TForm(Owner)
 {
 }
 //---------------------------------------------------------------------------
+// Функція для обчислення факторіалу числа
 double factorial(int n) {
     double fact = 1;
     for(int i = 1; i <= n; ++i) {
@@ -24,26 +25,37 @@ double factorial(int n) {
     return fact;
 }
 //---------------------------------------------------------------------------
-
+// Обробник події для натискання кнопки
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
+	// Оголошення та ініціалізація змінних
 	double a, f, sum = 0;
 	int k = 1;
 	double x = StrToFloat(Edit1->Text);
 	double e = StrToFloat(Edit2->Text);
 	ofstream fout;
+	// Відкриття файлу для запису (режим допису)
 	fout.open("file.txt", std::ios::app);
+	// Обчислення значення функції при x
 	f = 4.31 + pow(cos(x), 2) * sin(2*x - 2);
+	// Обчислення першого члена ряду
 	a = pow(-1, k) * ((f*(2*k+1)* pow(x, k))/ factorial(k));
+	// Цикл для обчислення ряду, поки абсолютне значення a більше, ніж e
 	while (fabs(a) >= e) {
+		// Додавання поточного члена до суми
 		sum += a;
+		// Інкремент індексу члена
 		k++;
+		// Обчислення наступного члена
 		a = pow(-1, k) * ((f*(2*k+1)* pow(x, k))/ factorial(k));
 	}
-	fout << "Sum of a series: " << sum << "\n";
-	fout << "Number of summed terms: " << k << "\n";
-	Panel1->Caption = "Sum of a series: " + FloatToStr(sum);
-	Panel1->Caption = "Number of summed terms: " + FloatToStr(k);
+	// Запис результатів у файл
+	fout << "Сума ряду: " << sum << "\n";
+	fout << "Кількість доданкових членів: " << k << "\n";
+	// Виведення результатів у блокнот на формі
+	Memo1->Lines->Add("Сума ряду: " + FloatToStr(sum));
+	Memo1->Lines->Add("Кількість доданкових членів: " + FloatToStr(k));
+	// Закриття файлу
 	fout.close();
 }
 //---------------------------------------------------------------------------
