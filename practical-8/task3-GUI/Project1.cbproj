@@ -1,6 +1,6 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <ProjectGuid>{0E40EFFF-BAAD-4418-BA79-C50ABE7C5B79}</ProjectGuid>
+        <ProjectGuid>{AE6386C6-0516-48E9-A845-E600CC3740F0}</ProjectGuid>
         <ProjectVersion>19.5</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <AppType>Application</AppType>
@@ -64,8 +64,8 @@
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
         <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
         <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
-        <IncludePath>..\..\practical-3\task-3GUI\;..\..\..\..\Downloads\kpi-c-cpp\practical-3\task-3GUI\;$(IncludePath)</IncludePath>
-        <ILINK_LibraryPath>..\..\practical-3\task-3GUI\;..\..\..\..\Downloads\kpi-c-cpp\practical-3\task-3GUI\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <IncludePath>..\..\..\..\Downloads\3\;Z:\practical-3\task-3GUI\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>..\..\..\..\Downloads\3\;Z:\practical-3\task-3GUI\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <SanitizedProjectName>Project1</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
@@ -121,12 +121,6 @@
         <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
     </PropertyGroup>
     <ItemGroup>
-        <CppCompile Include="..\..\practical-3\task-3GUI\Unit1.cpp">
-            <Form>Form1</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>..\..\practical-3\task-3GUI\Unit1.h</DependentOn>
-            <BuildOrder>2</BuildOrder>
-        </CppCompile>
         <CppCompile Include="Project1.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
@@ -134,7 +128,13 @@
             <BuildOrder>1</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
-        <FormResources Include="..\..\practical-3\task-3GUI\Unit1.dfm"/>
+        <CppCompile Include="Unit1.cpp">
+            <Form>Form1</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>Unit1.h</DependentOn>
+            <BuildOrder>2</BuildOrder>
+        </CppCompile>
+        <FormResources Include="Unit1.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
