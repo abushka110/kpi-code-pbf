@@ -17,34 +17,34 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
 double factorial(int n) {
-    double x, e, a, f, sum = 0;
-    int k = 1;
-
-    cout << "Введіть x (0 <= x <= 1): ";
-    cin >> x;
-    cout << "Введіть точність e: ";
-    cin >> e;
-
-    ofstream fout;
-    fout.open("file.txt", std::ios::app);
-
-    f = 4.31 + pow(cos(x), 2) * sin(2*x - 2);
-
-    a = pow(-1, k) * ((f*(2*k+1)* pow(x, k))/ factorial(k));
-    while (fabs(a) >= e) {
-        sum += a;
-        k++;
-        a = pow(-1, k) * ((f*(2*k+1)* pow(x, k))/ factorial(k));
+    double fact = 1;
+    for(int i = 1; i <= n; ++i) {
+        fact *= i;
     }
-
-    fout << "Сума ряду: " << sum << "\n";
-    fout << "Кількість доданків, що підсумовуються: " << k << "\n";
-
-    cout << "Сума ряду: " << sum << "\n";
-    cout << "Кількість доданків, що підсумовуються: " << k << "\n";
-
-    fout.close();
-
-    return 0;
+    return fact;
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+	double a, f, sum = 0;
+	int k = 1;
+	double x = StrToFloat(Edit1->Text);
+	double e = StrToFloat(Edit2->Text);
+	ofstream fout;
+	fout.open("file.txt", std::ios::app);
+	f = 4.31 + pow(cos(x), 2) * sin(2*x - 2);
+	a = pow(-1, k) * ((f*(2*k+1)* pow(x, k))/ factorial(k));
+	while (fabs(a) >= e) {
+		sum += a;
+		k++;
+		a = pow(-1, k) * ((f*(2*k+1)* pow(x, k))/ factorial(k));
+	}
+	fout << "Sum of a series: " << sum << "\n";
+	fout << "Number of summed terms: " << k << "\n";
+	Panel1->Caption = "Sum of a series: " + FloatToStr(sum);
+	Panel1->Caption = "Number of summed terms: " + FloatToStr(k);
+	fout.close();
+}
+//---------------------------------------------------------------------------
+
