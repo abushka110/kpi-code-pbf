@@ -13,84 +13,65 @@ object Form1: TForm1
   TextHeight = 15
   object Label1: TLabel
     Left = 16
-    Top = 19
-    Width = 273
+    Top = 18
+    Width = 185
     Height = 15
-    Caption = 'Enter the amount of butter (kg) (price =40,9 per kg):'
+    Caption = 'Label1'
   end
   object Label2: TLabel
     Left = 16
-    Top = 80
-    Width = 308
+    Top = 77
+    Width = 185
     Height = 15
-    Caption = 'Enter the amount of mayonnaise (kg) (price = 62,4 per kg):'
+    Caption = 'Label2'
   end
   object Label3: TLabel
     Left = 16
-    Top = 136
-    Width = 283
+    Top = 138
+    Width = 185
     Height = 15
-    Caption = 'Enter the amount of cream (kg) (price = 144,1 per kg):'
-  end
-  object Label4: TLabel
-    Left = 16
-    Top = 200
-    Width = 34
-    Height = 15
-    Caption = 'Label4'
-  end
-  object Label5: TLabel
-    Left = 16
-    Top = 221
-    Width = 34
-    Height = 15
-    Caption = 'Label5'
-  end
-  object Label6: TLabel
-    Left = 16
-    Top = 242
-    Width = 34
-    Height = 15
-    Caption = 'Label6'
-  end
-  object Label7: TLabel
-    Left = 16
-    Top = 272
-    Width = 34
-    Height = 15
-    Caption = 'Label7'
+    Caption = 'Label3'
   end
   object Edit1: TEdit
     Left = 16
-    Top = 40
-    Width = 121
+    Top = 39
+    Width = 185
     Height = 23
     TabOrder = 0
-    Text = 'butter (kg)'
+    Text = 'Edit1'
   end
   object Edit2: TEdit
     Left = 16
-    Top = 96
-    Width = 121
+    Top = 98
+    Width = 185
     Height = 23
     TabOrder = 1
-    Text = 'mayonnaise (kg)'
+    Text = 'Edit2'
   end
   object Edit3: TEdit
     Left = 16
-    Top = 149
-    Width = 121
+    Top = 159
+    Width = 185
     Height = 23
     TabOrder = 2
-    Text = 'cream (kg)'
+    Text = 'Edit3'
+  end
+  object Memo1: TMemo
+    Left = 16
+    Top = 231
+    Width = 185
+    Height = 89
+    Lines.Strings = (
+      '')
+    TabOrder = 3
   end
   object Button1: TButton
     Left = 16
-    Top = 312
-    Width = 75
+    Top = 200
+    Width = 185
     Height = 25
-    Caption = 'Calculate'
-    TabOrder = 3
+    Caption = 'Button1'
+    TabOrder = 4
     OnClick = Button1Click
   end
 end
