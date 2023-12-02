@@ -5,9 +5,9 @@ using namespace std;
 
 // Ряд Тейлора для функції ln((1+x)/(1-x))
 double ln_taylor(double x, int n) {
-    double sum = 2 * x;
+    double sum = 2 * x; // Початкове значення суми ряду
     for (int i = 1; i <= n; i++) {
-        sum += pow(x, 2 * i + 1) / (2 * i + 1);
+        sum += pow(x, 2 * i + 1) / (2 * i + 1); // Додавання наступного члена ряду Тейлора
     }
     return sum;
 }
@@ -24,12 +24,14 @@ int main() {
     cout << "точність: ";
     cin >> eps;
 
-    // Розрахунок
+    // Розрахунок та виведення результату для кожного значення x
     for (double x = x_start; x <= x_end; x += dx) {
         // Підрахунок кількості членів ряду
         int n = 0;
         double prev_sum = 0;
         double cur_sum = ln_taylor(x, n);
+
+        // Пошук кількості членів ряду, щоб досягти необхідної точності eps
         while (fabs(cur_sum - prev_sum) > eps) {
             n++;
             prev_sum = cur_sum;
