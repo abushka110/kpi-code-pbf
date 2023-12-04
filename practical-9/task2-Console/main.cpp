@@ -1,50 +1,49 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
 
-const int N = 10;
+using namespace std;
 
 int main() {
-    // Задання масиву x
-    double x[N] = { /* вкажіть значення елементів масиву x */ };
+    const int size = 10;
+    double y[size];
 
-    // Задання масиву y та обчислення його значень
-    double y[N];
-    for (int k = 0; k < N; ++k) {
-        y[k] = std::abs(std::cos(x[k] * x[k]) - 1.25) * std::sin(3 * x[k] - 4.44) + 4.44;
+    // Заповнення масиву y за заданим виразом
+    for (int k = 1; k <= size; ++k) {
+        y[k - 1] = fabs(pow(cos(k), 2) - 1.25) * sin(3 * k - 4.44) + 4.44;
     }
 
-    // Знаходження максимального елемента масиву y
+    // Виведення масиву y
+    cout << "Масив y:" << endl;
+    for (int i = 0; i < size; ++i) {
+        cout << "y[" << i + 1 << "] = " << y[i] << endl;
+    }
+
+    // Пошук максимального елемента
     double maxElement = y[0];
-    for (int k = 1; k < N; ++k) {
-        if (y[k] > maxElement) {
-            maxElement = y[k];
+    for (int i = 1; i < size; ++i) {
+        if (y[i] > maxElement) {
+            maxElement = y[i];
         }
     }
 
-    // Занесення додатніх елементів (крім максимального) в інший масив
-    double positiveElements[N];
-    int posIndex = 0;
-    for (int k = 0; k < N; ++k) {
-        if (y[k] > 0 && y[k] != maxElement) {
-            positiveElements[posIndex] = y[k];
-            ++posIndex;
+    // Занесення додатних елементів (крім максимального) в інший масив
+    vector<double> positiveElements;
+    for (double i : y) {
+        if (i > 0 && i < maxElement) {
+            positiveElements.push_back(i);
         }
     }
 
-    // Виведення результатів
-    std::cout << "Масив y:\n";
-    for (int k = 0; k < N; ++k) {
-        std::cout << "y[" << k << "] = " << y[k] << "\n";
-    }
-
-    if (posIndex > 0) {
-        std::cout << "Додатні елементи масиву y (крім максимального):\n";
-        for (int i = 0; i < posIndex; ++i) {
-            std::cout << positiveElements[i] << " ";
-        }
-        std::cout << "\n";
+    // Виведення результату
+    if (positiveElements.empty()) {
+        cout << "Додатні елементи (крім максимального) відсутні" << endl;
     } else {
-        std::cout << "Додатні елементи (крім максимального) відсутні.\n";
+        cout << "Додатні елементи (крім максимального):" << endl;
+        for (const auto &element : positiveElements) {
+            cout << element << " ";
+        }
+        cout << endl;
     }
 
     return 0;
