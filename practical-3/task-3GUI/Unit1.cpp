@@ -14,38 +14,30 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
-// Функція, яка обчислює значення функції для заданого аргументу x
-double f(double x) {
-    return 4.31 + pow(cos(x), 2) * sin(2 * x - 2);
-}
-//---------------------------------------------------------------------------
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
-	double x_start = StrToFloat(Edit1->Text);
-	double x_end = StrToFloat(Edit2->Text);
-	double dx = StrToFloat(Edit3->Text);
+	// Щкщлошення змінних для кількості продуктів
+	double m1 = StrToFloat(Edit1->Text);
+	double m2 = StrToFloat(Edit2->Text);
+	double m3 = StrToFloat(Edit3->Text);
 
-    // Ініціалізація змінних для обчислення суми та кількості додатних значень
-    double x = x_start;
-    int count = 0;
-    double sum = 0;
-	// Виведення заголовка для таблиці
-	Memo1->Lines->Add("x - argument y - function value");
-    // Цикл для обчислення та виведення значень функції
-    while (x <= x_end) {
-        double y = f(x);
-        // Перевірка, чи значення функції додатнє
-        if (y > 0) {
-            count++;  // Якщо так, збільшити лічильник
-            sum += y;  // Додати значення до суми
-        }
-		// Виведення значень x та y
-		Memo1->Lines->Add("x = " + FloatToStr(x) + " y = " + FloatToStr(y));
-        // Збільшення значення x на крок dx
-		x += dx;
-    }
-	// Виведення суми та кількості додатних значень функції
-	Memo1->Lines->Add("The sum of positive values of a function: " + FloatToStr(sum));
-	Memo1->Lines->Add("Number of positive values of the function: " + FloatToStr(count));
+    // Оголошення змінних для цін на продукти
+    double price_m1 = 40.90;
+    double price_m2 = 62.40;
+	double price_m3 = 144.10;
+
+    // Обчислення сум для кожного продукту
+	double total_m1 = m1 * price_m1;
+	double total_m2 = m2 * price_m2;
+	double total_m3 = m3 * price_m3;
+
+    // Обчислення загальної суми
+	double total = total_m1 + total_m2 + total_m3;
+
+	// Виведення результатів
+	Label4->Caption = "Amount for butter: " + FloatToStr(total_m1) + " uah";
+	Label5->Caption = "Amount for mayonaise: " + FloatToStr(total_m2) + " uah";
+	Label6->Caption = "Amount for cream: " + FloatToStr(total_m3) + " uah";
+	Label7->Caption = "Total: " + FloatToStr(total) + " uah";
 }
 //---------------------------------------------------------------------------
