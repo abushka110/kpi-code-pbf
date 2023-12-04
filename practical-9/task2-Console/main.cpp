@@ -21,9 +21,11 @@ int main() {
 
     // Пошук максимального елемента
     double maxElement = y[0];
+    int maxIndex = 0;
     for (int i = 1; i < size; ++i) {
         if (y[i] > maxElement) {
             maxElement = y[i];
+            maxIndex = i;
         }
     }
 
@@ -35,15 +37,27 @@ int main() {
         }
     }
 
-    // Виведення результату
+    // Виведення максимального елемента
+    cout << "Максимальний елемент: y[" << maxIndex + 1 << "] = " << maxElement << endl;
+
+    // Виведення 1-го додатного елемента головного масиву
+    for (int i = 0; i < size; ++i) {
+        if (y[i] > 0) {
+            cout << "1-ий додатній елемент: y[" << i + 1 << "] = " << y[i] << endl;
+            break;
+        }
+    }
+
+    // Виведення другого масиву
     if (positiveElements.empty()) {
         cout << "Додатні елементи (крім максимального) відсутні" << endl;
     } else {
         cout << "Додатні елементи (крім максимального):" << endl;
-        for (const auto &element : positiveElements) {
-            cout << element << " ";
+        for (int i = 0; i < size; ++i) {
+            if (y[i] > 0 && y[i] < maxElement) {
+                cout << "y[" << i + 1 << "] = " << y[i] << endl;
+            }
         }
-        cout << endl;
     }
 
     return 0;
