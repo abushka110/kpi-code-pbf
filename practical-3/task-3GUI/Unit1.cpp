@@ -16,7 +16,7 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button1Click(TObject *Sender)
 {
-	// Щкщлошення змінних для кількості продуктів
+	// Оголошення змінних для кількості продуктів
 	double m1 = StrToFloat(Edit1->Text);
 	double m2 = StrToFloat(Edit2->Text);
 	double m3 = StrToFloat(Edit3->Text);
