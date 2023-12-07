@@ -1,21 +1,22 @@
 //---------------------------------------------------------------------------
 
-#ifndef Unit3H
-#define Unit3H
+#ifndef Unit2H
+#define Unit2H
 //---------------------------------------------------------------------------
 #include <System.Classes.hpp>
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
 //---------------------------------------------------------------------------
-class TForm3 : public TForm
+class TForm2 : public TForm
 {
 __published:	// IDE-managed Components
+	TEdit *EditUnit2;
 private:	// User declarations
 public:		// User declarations
-	__fastcall TForm3(TComponent* Owner);
+	__fastcall TForm2(TComponent* Owner);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TForm3 *Form3;
+extern PACKAGE TForm2 *Form2;
 //---------------------------------------------------------------------------
 #endif
