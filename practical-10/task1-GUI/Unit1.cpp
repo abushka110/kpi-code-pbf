@@ -23,11 +23,9 @@ using namespace std; // Використання простору імен std
 // Константи для кількості працівників у підрозділах A та B
 const int A = 15; // Кількість працівників у підрозділі A
 const int B = 20; // Кількість працівників у підрозділі B
-
 // Константи для розрахунку зарплати та податку
 const int salaryPerDay = 40; // Зарплата за день
 const double taxRate = 0.2; // Податкова ставка
-
 // Структура для зберігання інформації про працівника
 struct Employee {
     int days; // Кількість відпрацьованих днів
@@ -70,7 +68,6 @@ void __fastcall TForm1::BtnCalculateClick(TObject *Sender)
 	}
     // Виведення загальної кількості відпрацьованих днів
 	Memo1->Lines->Add("Division A Total days worked : " + FloatToStr(totalDaysA));
-
     StringGrid2->Cells[0][0]="Employees";
 	StringGrid2->Cells[1][0]="Days";
 	StringGrid2->Cells[2][0]="Salary";
