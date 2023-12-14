@@ -1,6 +1,6 @@
 ﻿//---------------------------------------------------------------------------
 #include <vcl.h>
-#include <cmath>
+#include <math.h>
 #include <fstream>
 #pragma hdrstop
 

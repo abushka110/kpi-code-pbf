@@ -2,7 +2,7 @@
 
 #include <vcl.h>
 #pragma hdrstop
-#include <cmath>
+#include <math.h>
 #include <vector>
 
 #include "Unit1.h"
