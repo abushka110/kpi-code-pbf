@@ -2,18 +2,18 @@
 import math
 
 # Зчитування введених користувачем значень
-a = float(input("Введіть число A: "))
-b = float(input("Введіть число B: "))
-c = float(input("Введіть число C: "))
+A = float(input("Введіть число A: "))
+B = float(input("Введіть число B: "))
+C = float(input("Введіть число C: "))
 
 # обчислення суму та півпериметр
-sum_ABC = a + b + c
-p = sum_ABC / 2
+sum_ABC = A + B + C
+P = sum_ABC / 2
 
 # обчислення різниць між півпериметром та числами
-p_minus_a = p - a
-p_minus_b = p - b
-p_minus_c = p - c
+p_minus_a = P - A
+p_minus_b = P - B
+p_minus_c = P - C
 
 # розрахунок площі за формулою Герона
-s = math.sqrt(p * p_minus_a * p_minus_b * p_minus_c)
+s = math.sqrt(P * p_minus_a * p_minus_b * p_minus_c)

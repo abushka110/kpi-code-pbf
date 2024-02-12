@@ -1,13 +1,13 @@
 # зчитування X, Y введених користувачем
-x = int(input("X: "))
-y = int(input("Y: "))
+X = int(input("X: "))
+Y = int(input("Y: "))
 
 # розрахунок добутку X, Y
-xyProduct = x * y
+xyProduct = X * y
 
 z = 0
 # визначення значення функції Z, якщо X та Y не ріні 0
-if x != 0 and y != 0:
+if X != 0 and Y != 0:
     z = 1 / xyProduct
 
 # виведення результату

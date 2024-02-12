@@ -1,15 +1,15 @@
 import math
 
 # Зчитування введених користувачем значень
-a = int(input("Введіть число a (в градусах): "))
-b = int(input("Введіть число b (в градусах): "))
-c = int(input("Введіть число c: "))
+A = int(input("Введіть число a (в градусах): "))
+B = int(input("Введіть число b (в градусах): "))
+C = int(input("Введіть число c: "))
 
 # Обчислення косинусу суми кутів a і b в радіанах
-cosAB = math.cos(math.radians(a) + math.radians(b))
+cos_a_b = math.cos(math.radians(A) + math.radians(B))
 
 # Обчислення 10 в ступені cosAB
-powOfTen = pow(10, cosAB)
+pow_Of_Ten = pow(10, cos_a_b)
 
 # Виведення результату у вигляді рядка
 print(f"y = {powOfTen * c}")
