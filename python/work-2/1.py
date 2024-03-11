@@ -1,7 +1,8 @@
-def f(x):
-  if x >= -4 and x < -8:
-    return (x + 3) * (x - 2)
-  elif x >= -8 and x < -13:
-    return x**2 + 10
-  else:
-    return x**2 - 8
+x = int(input("Введіть значення x: "))
+
+if x >= -4:
+    print((x**2 - 1) / (pow(x, 3) + 1))
+elif x < -8:
+    print((x + 3) * (x - 2))
+else:
+    print(f"Значення x({x}) не входить в область допустимих значень")
