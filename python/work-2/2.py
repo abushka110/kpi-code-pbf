@@ -1,26 +1,25 @@
-import math
+from math import sqrt, pow
 
 # задана точність
-epsilon = 1e-4
+e = 1e-4
 
 # ініціалізація поточного та попереднього значень pi
-pi_approx = 0
-# float('inf') - спеціальне значення нескінченності
-# гарантує що будь-яке реальне число буде менше за початкове значення
-prev_pi_approx = float('inf')
+pi_approx = 1
+prev_pi_approx = 0
 
 i = 1
-# ініціалізація дії між сумою та доданком
-sign = 1
 
 # програма проводить обчислення
 # доки задана точність більша за різницю між попереднім і поточним значеннями pi
-while abs(prev_pi_approx - pi_approx) > epsilon:
-    prev_pi_approx = pi_approx
-    # розрахунок значення pi за формулою Шарпа
-    pi_approx += sign * (1 / (math.pow(3, i) * (2 * i - 1)))
-    i += 1
-    sign *= -1
+while abs(pi_approx - prev_pi_approx) >= e:
+  prev_pi_approx = pi_approx
+  # розрахунок значення pi за формулою Шарпа
+  term = 1 / (pow(3, i) * (2 * i + 1))
+  if i % 2 == 0:
+    pi_approx += term
+  else:
+    pi_approx -= term
+  i += 1
 
-pi_approx *= 2 * math.sqrt(3)
-print(pi_approx)
+pi_approx *= 2 * sqrt(3)
+print(f"Значення константи π: {pi_approx}")
