@@ -73,13 +73,13 @@ if __name__ == "__main__":
     michael_account = BankAccount("Michael", "De Santa", 13000)
     michael_account.info()
     # Власник рахунку: De Santa Michael
-    # Номер рахунку: 3364877275
+    # Номер рахунку: 3364877275 (random number)
     # Сума грошей на рахунку: 13000 гривень
     michael_account.change_owner("Trevor", "Phillips")
     michael_account.put(1000)
     michael_account.info()
     # Власник рахунку: Phillips Trevor
-    # Номер рахунку: 8370434549
+    # Номер рахунку: 8370434549 (random number)
     # Сума грошей на рахунку: 14000 гривень
     michael_account.withdrawal(13000)
     # no output
