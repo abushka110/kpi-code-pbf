@@ -1,4 +1,4 @@
-import random  # Імпортуємо модуля random для генерації випадкових чисел
+import random  # Імпорт модуля random для генерації випадкових чисел
 
 class BankAccount:  # Визначення класу BankAccount
     """
