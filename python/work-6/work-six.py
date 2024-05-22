@@ -1,6 +1,4 @@
 # 3
-import re
-
 class Subscriber:
     def __init__(self, name):
         self.__name = name
@@ -15,7 +13,7 @@ class Subscriber:
         if isinstance(value, str) and 2 <= len(value) <= 20:
             self.__name = value
         else:
-            print("Name must be a string of 2 to 20 characters")
+            print("Ім'я повинно містити від 2 до 20 символів")
 
     @property
     def number(self):
@@ -23,19 +21,44 @@ class Subscriber:
 
     @number.setter
     def number(self, value):
-        pattern = r"^(\+)?(\d[\d\s-]*\d)$"
-        if re.fullmatch(pattern, value) and "--" not in value and " -" not in value and "- " not in value:
-            self.__number = value
+        error_message = self.validate_number(value)
+        if error_message:
+            print(error_message)
         else:
-            print("Invalid number format")
+            self.__number = value
+            print("Номер додано")
 
-# Testing the class
-subscriber = Subscriber("John")
-print(subscriber.name)  # John
-print(subscriber.number)  # Номер відсутній
-subscriber.name = "John Doe"
-print(subscriber.name)  # John Doe
-subscriber.number = "+380631112233"
-print(subscriber.number)  # +380631112233
-subscriber.number = "+38067--111-22-33"  # Invalid number format
-print(subscriber.number)  # +380631112233
+    def validate_number(self, number):
+        valid_signs = "1234567890-+ "
+        for i in range(len(number)):
+            if number[i] not in valid_signs:
+                return "Номер має містити тільки цифри, риски, пробіли та знак + (тільки як перший символ)."
+            if i > 0 and number[i] in "-+":
+                return "Риски або знак + не можуть йти поспіль більше однієї."
+            if i > 0 and number[i] == " " and number[i-1] in "- ":
+                return "За рискою або пробілом не може йти пробіл."
+        return None
+
+# test
+if __name__ == "__main__":
+    subscriber = Subscriber("John")
+    print(subscriber.name)  # John
+    print(subscriber.number)  # Номер відсутній
+    print()
+    subscriber.name = "John Doe"
+    print(subscriber.name)  # John Doe
+    print()
+    subscriber.number = "+380631112233"
+    print(subscriber.number)  # +380631112233
+    print()
+    subscriber.number = "+38067--111-22-33"  # Invalid number format
+    print(subscriber.number)  # +380631112233
+    print()
+    subscriber.number = "050 -111- 22 -33"  # Invalid number format
+    print(subscriber.number)  # +380631112233
+    print()
+    subscriber.number = "No0631112233"  # Invalid number format
+    print(subscriber.number)  # +380631112233
+    print()
+    subscriber.number = "096АА11d33"  # Invalid number format
+    print(subscriber.number)  # +380631112233
