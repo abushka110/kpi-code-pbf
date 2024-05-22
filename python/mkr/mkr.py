@@ -26,6 +26,12 @@ class Application(tk.Tk):
         self.clear_button = tk.Button(self, text="Очистити графік", command=self.clear_graph)
         self.clear_button.pack(side=tk.LEFT)
 
+    def plot_sine(self):
+        x = np.linspace(0, 2 * np.pi, 100)
+        y = np.sin(x)
+        self.ax.plot(x, y, color=self.color_var.get())
+        self.canvas.draw()
+
     def plot_graph(self):
         x = np.linspace(0, 10*np.pi, 1000)
         y = np.sin(x)
@@ -38,4 +44,5 @@ class Application(tk.Tk):
 
 if __name__ == "__main__":
     app = Application()
+    app.plot_sine()
     app.mainloop()
