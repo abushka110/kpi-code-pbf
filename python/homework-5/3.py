@@ -4,28 +4,29 @@ class Webinar:
         self.speakers = speakers
         self.listeners = listeners
 
-    def print_info(self):
-        print(f'Webinar Name: {self.name}, Speakers: {self.speakers}, Listeners: {self.listeners}')
+    def display_info(self):
+        return f"Webinar: {self.name}, Speakers: {self.speakers}, Listeners: {self.listeners}"
 
-    def calculate_quality(self):
+    def quality(self):
         return self.speakers / self.listeners
 
 
-class ExtendedWebinar(Webinar):
+class WebinarChild(Webinar):
     def __init__(self, name, speakers, listeners, questions):
         super().__init__(name, speakers, listeners)
         self.questions = questions
 
-    def calculate_quality(self):
-        base_quality = super().calculate_quality()
-        return base_quality + 0.5 * (self.questions / self.speakers + self.questions / self.listeners)
+    def quality(self):
+        parent_quality = super().quality()
+        return parent_quality + 0.5 * (self.questions / self.speakers + self.questions / self.listeners)
 
 
 # Create instances for demonstration
-webinar1 = Webinar('Webinar 1', 5, 100)
-webinar1.print_info()
-print('Quality:', webinar1.calculate_quality())
+webinar1 = Webinar("Webinar 1", 2, 100)
+webinar2 = WebinarChild("Webinar 2", 3, 150, 10)
 
-webinar2 = ExtendedWebinar('Webinar 2', 5, 100, 20)
-webinar2.print_info()
-print('Quality:', webinar2.calculate_quality())
+print(webinar1.display_info())
+print("Quality:", webinar1.quality())
+
+print(webinar2.display_info())
+print("Quality:", webinar2.quality())
