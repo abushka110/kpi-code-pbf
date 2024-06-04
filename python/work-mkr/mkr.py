@@ -26,8 +26,12 @@ canvas.draw()  # Відображаємо фігуру
 canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)  # Додаємо полотно до головного вікна
 
 color_var = tk.StringVar(value='blue')  # Створюємо змінну для зберігання вибраного кольору
-color_rb = tk.Radiobutton(root, text='Color', variable=color_var, value='blue')  # Створюємо радіокнопку для вибору кольору
-color_rb.pack()  # Додаємо радіокнопку до головного вікна
+
+# Створюємо радіокнопки для вибору кольору
+colors = ['yellow', 'green', 'blue', 'red', 'brown', 'black']
+for color in colors:
+    color_rb = tk.Radiobutton(root, text=color, variable=color_var, value=color)
+    color_rb.pack()
 
 plot_button = tk.Button(root, text="Побудувати графік", command=plot_sine)  # Створюємо кнопку для побудови графіку
 plot_button.pack()  # Додаємо кнопку до головного вікна
