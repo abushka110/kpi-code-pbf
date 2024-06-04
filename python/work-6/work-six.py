@@ -21,14 +21,14 @@ class Subscriber:
 
     @number.setter
     def number(self, value):
-        error_message = self.validate_number(value)
+        error_message = self.__validate_number(value)
         if error_message:
             print(error_message)
         else:
             self.__number = value
             print("Номер додано")
 
-    def validate_number(self, number):
+    def __validate_number(self, number):
         valid_signs = "1234567890-+ "
         for i in range(len(number)):
             if number[i] not in valid_signs:
