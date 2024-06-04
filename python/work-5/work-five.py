@@ -19,8 +19,9 @@ class EVehicle:
 
     # Метод для розрахунку втрат заряду при проїзді заданої дистанції
     def charge_loss(self, distance):
-        return (distance / self.max_distance) * 100
-
+        loss = (distance / self.max_distance) * 100
+        print(loss)
+        return loss
 
 # клас EBike (електровелосипед), який успадковує EVehicle
 class EBike(EVehicle):
@@ -35,6 +36,7 @@ class EBike(EVehicle):
 
     # Метод для розрахунку втрат заряду при проїзді заданої дистанції
     def charge_loss(self, distance):
+        super().params()
         return super().charge_loss(distance) * (1 - self.freeway)
 
 
@@ -55,6 +57,7 @@ class EScooter(EVehicle):
 
 def ride(vehicle):
     vehicle_type = ""
+    vehicle.params()
     if isinstance(vehicle, EBike):
         vehicle_type = "електро велосипеді"
     elif isinstance(vehicle, EScooter):
