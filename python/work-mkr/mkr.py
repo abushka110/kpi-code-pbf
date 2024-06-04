@@ -1,42 +1,42 @@
 import tkinter as tk
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import numpy as np
+import math
 
 # Функція для побудови графіку синуса
 def plot_sine():
-    color = color_var.get()  # Отримуємо вибраний колір
-    x = np.linspace(0, 10*np.pi, 1000)  # Генеруємо масив x-значень від 0 до 10π
-    y = np.sin(x)  # Обчислюємо відповідні y-значення як синус x
-    ax.clear()  # Очищуємо поточний графік
-    ax.plot(x, y, color=color)  # Будуємо графік y проти x у вибраному кольорі
-    canvas.draw()  # Відображаємо графік
+    color = color_var.get()  # отримання вибраного кольору
+    x = [i * 0.01 * math.pi for i in range(1000)]  # генерація масиву x-значень від 0 до 10π
+    y = [math.sin(i) for i in x]  # обчислення y-значення як синус x
+    ax.clear()  # очищення графіку
+    ax.plot(x, y, color=color)  # побудова графіку
+    canvas.draw()
 
 # Функція для очищення графіку
 def clear_plot():
-    ax.clear()  # Очищуємо поточний графік
-    canvas.draw()  # Відображаємо пустий графік
+    ax.clear()
+    canvas.draw() # відобразить пустий графік
 
-root = tk.Tk()  # Створюємо головне вікно
+root = tk.Tk()
 
-fig = Figure(figsize=(5, 4), dpi=100)  # Створюємо фігуру для графіку
-ax = fig.add_subplot(111)  # Додаємо осі до фігури
-canvas = FigureCanvasTkAgg(fig, master=root)  # Створюємо полотно для відображення фігури
-canvas.draw()  # Відображаємо фігуру
-canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)  # Додаємо полотно до головного вікна
+fig = Figure(figsize=(5, 4), dpi=100)  # фігура для графіку
+ax = fig.add_subplot(111)  # осі до фігури
+canvas = FigureCanvasTkAgg(fig, master=root)  # полотно для відображення фігури
+canvas.draw()
+canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
 
-color_var = tk.StringVar(value='blue')  # Створюємо змінну для зберігання вибраного кольору
+color_var = tk.StringVar(value='blue')  # змінна для зберігання вибраного кольору
 
-# Створюємо радіокнопки для вибору кольору
+# радіокнопки для вибору кольору
 colors = ['yellow', 'green', 'blue', 'red', 'brown', 'black']
 for color in colors:
     color_rb = tk.Radiobutton(root, text=color, variable=color_var, value=color)
     color_rb.pack()
 
-plot_button = tk.Button(root, text="Побудувати графік", command=plot_sine)  # Створюємо кнопку для побудови графіку
-plot_button.pack()  # Додаємо кнопку до головного вікна
+plot_button = tk.Button(root, text="Побудувати графік", command=plot_sine)  # кнопка для побудови графіку
+plot_button.pack() # додає кнопку до головного екрану
 
-clear_button = tk.Button(root, text="Очистити графік", command=clear_plot)  # Створюємо кнопку для очищення графіку
-clear_button.pack()  # Додаємо кнопку до головного вікна
+clear_button = tk.Button(root, text="Очистити графік", command=clear_plot)  # кнопка для очищення графіку
+clear_button.pack()
 
-tk.mainloop()  # Запускаємо основний цикл обробки подій tkinter
+tk.mainloop()  # запуск основного циклу обробки подій tkinter
