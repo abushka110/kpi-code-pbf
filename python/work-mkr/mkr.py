@@ -27,7 +27,7 @@ canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
 
 color_var = tk.StringVar(value='blue')  # змінна для зберігання вибраного кольору
 
-# радіокнопки для вибору кольору
+# radio buttons для вибору кольору
 colors = ['yellow', 'green', 'blue', 'red', 'brown', 'black']
 for color in colors:
     color_rb = tk.Radiobutton(root, text=color, variable=color_var, value=color)
